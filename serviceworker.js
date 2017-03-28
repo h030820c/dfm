@@ -8,7 +8,7 @@ var CACHED_URLS = [
     'min-style.css'
   // JavaScript
     'material.js',
-    'manifest.json'
+    'manifest.json',
   // Images
     'appimages/android-icon36x36.png',
     'appimages/android-icon48x48.png.png',
