@@ -23,7 +23,25 @@ var CACHED_URLS = [
     'appimages/ms-icon-144x144.png',
     'appimages/ms-icon-150x150.png',
     'appimages/ms-icon-310x310.png',
-    'appimages/paddy.jpg'
+    'appimages/paddy.jpg',
+    
+    'example-blog01.jpg',
+    'example-blog02.jpg',
+    'example-blog03.jpg',
+    'example-blog04.jpg',
+    'example-blog05.jpg',
+    'example-blog06.jpg',
+    'example-blog07.jpg',
+    
+    'example.work01.jpg',
+    'example.work02.jpg',
+    'example.work03.jpg',
+    'example.work04.jpg',
+    'example.work05.jpg',
+    'example.work06.jpg',
+    'example.work07.jpg',
+    'example.work08.jpg',
+    'example.work09.jpg',
 ];
 
 self.addEventListener('install', function(event) {
@@ -36,18 +54,32 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request).then(function(response) {
-        if (response) {
-          return response;
-        } else if (event.request.headers.get('accept').includes('text/html')) {
-          return caches.match('first.html');
-        }
-      });
-    })
-  );
+  var requestURL = new URL(event.request.url);
+  if (requestURL.pathname === 'first.html') {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match('first.html').then(function(cachedResponse) {
+          var fetchPromise = fetch('first.html').then(function(networkResponse) {
+            cache.put('first.html', networkResponse.clone());
+            return networkResponse;
+          });
+          return cachedResponse || fetchPromise;
+        });
+      })
+    );
+  } else if (
+    CACHED_URLS.includes(requestURL.href) ||
+    CACHED_URLS.includes(requestURL.pathname) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match(event.request).then(function(response) {
+          return response || fetch(event.request);
+        })
+      })
+    );
+  }
 });
+
 
 self.addEventListener('activate', function(event) {
   event.waitUntil(
