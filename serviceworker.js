@@ -5,7 +5,7 @@ var CACHED_URLS = [
   // Stylesheets and fonts
     'styles.css',
     'mystyles.css',
-    'min-style.css'
+    'min-style.css',
   // JavaScript
     'material.js',
     'manifest.json',
