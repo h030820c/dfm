@@ -11,12 +11,11 @@ var CACHED_URLS = [
     'manifest.json',
   // Images
     'appimages/android-icon-36x36.png',
-    'appimages/android-icon-48x48.png.png',
+    'appimages/android-icon-48x48.png',
     'appimages/android-icon-72x72.png',
     'appimages/android-icon-96x96.png',
     'appimages/android-icon-144x144.png',
     'appimages/android-icon-192x192.png',
-    'appimages/favicon.png',
     'appimages/favicon-16x16.png',
     'appimages/favicon-32x32.png',
     'appimages/favicon-96x96.png',
