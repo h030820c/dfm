@@ -1,47 +1,48 @@
 var CACHE_NAME = 'gih-cache-v5';
+var BASE_PATH = '/dfm/'
 var CACHED_URLS = [
   // Our HTML
-  'first.html',
+  BASE_PATH + 'first.html',
   // Stylesheets and fonts
-    'styles.css',
-    'mystyles.css',
-    'min-style.css',
+    BASE_PATH + 'styles.css',
+    BASE_PATH + 'mystyles.css',
+    BASE_PATH + 'min-style.css',
   // JavaScript
-    'material.js',
-    'manifest.json',
+    BASE_PATH + 'material.js',
+    BASE_PATH + 'manifest.json',
   // Images
-    'appimages/android-icon-36x36.png',
-    'appimages/android-icon-48x48.png',
-    'appimages/android-icon-72x72.png',
-    'appimages/android-icon-96x96.png',
-    'appimages/android-icon-144x144.png',
-    'appimages/android-icon-192x192.png',
-    'appimages/favicon-16x16.png',
-    'appimages/favicon-32x32.png',
-    'appimages/favicon-96x96.png',
-    'appimages/ms-icon-70x70.png',
-    'appimages/ms-icon-144x144.png',
-    'appimages/ms-icon-150x150.png',
-    'appimages/ms-icon-310x310.png',
-    'appimages/paddy.jpg',
+    BASE_PATH + 'appimages/android-icon-36x36.png',
+    BASE_PATH + 'appimages/android-icon-48x48.png',
+    BASE_PATH + 'appimages/android-icon-72x72.png',
+    BASE_PATH + 'appimages/android-icon-96x96.png',
+    BASE_PATH + 'appimages/android-icon-144x144.png',
+    BASE_PATH + 'appimages/android-icon-192x192.png',
+    BASE_PATH + 'appimages/favicon-16x16.png',
+    BASE_PATH + 'appimages/favicon-32x32.png',
+    BASE_PATH +  'appimages/favicon-96x96.png',
+    BASE_PATH + 'appimages/ms-icon-70x70.png',
+    BASE_PATH + 'appimages/ms-icon-144x144.png',
+    BASE_PATH + 'appimages/ms-icon-150x150.png',
+    BASE_PATH +  'appimages/ms-icon-310x310.png',
+    BASE_PATH + 'appimages/paddy.jpg',
     
-    'example-blog01.jpg',
-    'example-blog02.jpg',
-    'example-blog03.jpg',
-    'example-blog04.jpg',
-    'example-blog05.jpg',
-    'example-blog06.jpg',
-    'example-blog07.jpg',
+    BASE_PATH + 'example-blog01.jpg',
+    BASE_PATH + 'example-blog02.jpg',
+    BASE_PATH + 'example-blog03.jpg',
+    BASE_PATH + 'example-blog04.jpg',
+    BASE_PATH + 'example-blog05.jpg',
+    BASE_PATH + 'example-blog06.jpg',
+    BASE_PATH + 'example-blog07.jpg',
     
-    'example.work01.jpg',
-    'example.work02.jpg',
-    'example.work03.jpg',
-    'example.work04.jpg',
-    'example.work05.jpg',
-    'example.work06.jpg',
-    'example.work07.jpg',
-    'example.work08.jpg',
-    'example.work09.jpg',
+    BASE_PATH + 'example.work01.jpg',
+    BASE_PATH + 'example.work02.jpg',
+    BASE_PATH + 'example.work03.jpg',
+    BASE_PATH + 'example.work04.jpg',
+    BASE_PATH + 'example.work05.jpg',
+    BASE_PATH + 'example.work06.jpg',
+    BASE_PATH + 'example.work07.jpg',
+    BASE_PATH + 'example.work08.jpg',
+    BASE_PATH + 'example.work09.jpg',
 ];
 
 self.addEventListener('install', function(event) {
@@ -55,10 +56,10 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   var requestURL = new URL(event.request.url);
-  if (requestURL.pathname === 'first.html') {
+  if (requestURL.pathname === BASE_PATH +  'first.html') {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
-        return cache.match('first.html').then(function(cachedResponse) {
+        return cache.match(BASE_PATH + 'first.html').then(function(cachedResponse) {
           var fetchPromise = fetch('first.html').then(function(networkResponse) {
             cache.put('first.html', networkResponse.clone());
             return networkResponse;
