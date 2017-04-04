@@ -56,7 +56,7 @@
               <div id="map-container" style="height: 300px;"></div>
                 <script>
                 function initMap() {
-                    var myLocation = {lat: 53.0027, lng: 2.1794};
+                    var myLocation = {lat: 53.0143101, lng: -2.1792526000000407};
                     var map = new google.maps.Map(document.getElementById('map-container'), {
                     zoom: 2,
                     center: myLocation
@@ -92,16 +92,6 @@
       </main>
     </div>
        <script src="material.js"></script>
-      <script>
-      if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
-
-    console.log('Service worker registered successfully');
-  }).catch(function(err) {
-    console.log('Service worker registration failed: ', err);
-  });
-}
-
-      </script>
+      
   </body>
 </html>
