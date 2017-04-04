@@ -13,7 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+#map{
+    
+    width:80%;
+    margin: 0 auto;
+}
 .demo-ribbon {
   width: 100%;
   height: 40vh;
