@@ -1,3 +1,4 @@
+
 var CACHE_NAME = 'gih-cache-v5';
 var BASE_PATH = '/dfm/'
 var CACHED_URLS = [
