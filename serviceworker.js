@@ -1,6 +1,6 @@
 
 var CACHE_NAME = 'gih-cache-v6';
-var BASE_PATH = '/dfm2/'
+var BASE_PATH = '/dfm2/';
 var CACHED_URLS = [
   // Our HTML
   BASE_PATH + 'first.html',
