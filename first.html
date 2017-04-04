@@ -143,7 +143,24 @@
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
                     </div>
                 </div>
-                <div id="map"></div>
+                 <div id="map-container" style="height: 300px;"></div>
+                <script>
+                function initMap() {
+                    var myLocation = {lat: 53.0103798, lng: -2.1801833};
+                    var map = new google.maps.Map(document.getElementById('map-container'), {
+                    zoom: 2,
+                    center: myLocation
+                    });
+                    var marker = new google.maps.Marker({
+                    position: myLocation,
+                    map: map
+                    });
+                }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&callback=initMap">
+                </script>
+
       
             </div>
         <footer class="demo-footer mdl-mini-footer">
